@@ -14,13 +14,19 @@
 set -euo pipefail
 echo "Starting at: $(date)"
 
+#Deepvariant version
 BIN_VERSION="1.6.1"
+
+#REF is path to reference genome
+#READS is path to your alignment .bam file, mine was already filtered and sorted
+#OUTDIR is path to the output directory
 
 REF=/group/gmonroegrp2/chaehee/Pablo/pistachio/genome_sequence/Pvera_Kerman_RefGen_v1.fasta
 READS=/group/gmonroegrp2/chaehee/Pablo/UCB1_hybridization/02_whatshap/01_align_reads/Patl.filtered.sorted.bam
 OUTDIR=/group/gmonroegrp2/chaehee/Pablo/UCB1_hybridization/02_whatshap/02_call_variants
 
-# Use node-local scratch
+# Use node-local scratch, this was possible for me as my HPC had this directory for tmp files
+
 TMPROOT=/tmp/$USER/deepvariant_${SLURM_JOB_ID:-$$}
 
 # Create directories
@@ -45,6 +51,18 @@ module load apptainer/latest
 echo "Running DeepVariant (PacBio mode)"
 echo "Temporary files stored in: ${TMPROOT}"
 
+# Run DeepVariant
+# the 1st --bind is the path to the directory weer I will store my output files
+# the 2nd --bind is for the temporary directory
+# the 3rd --bind is to my local 
+# the --env selects the temporary directory and the cache
+# docker runs deepvariant
+# --model_type specifies your data type, in this case it was longreads data
+# --ref is the path to the reference genome
+# --reads is the path to the .bam file
+# --make_examples_extra_args includes mean depth as output data
+# --output_vcf and --output-gvcf specify the path to the output vcf and gvcf files, they could be gzipped
+# num_shards specifies the number of cores or CPU to use
 apptainer exec \
   --bind /group/gmonroegrp2:/group/gmonroegrp2 \
   --bind ${TMPROOT}:${TMPROOT} \
