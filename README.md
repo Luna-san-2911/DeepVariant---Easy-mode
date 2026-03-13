@@ -2,7 +2,7 @@
 
 Hola! Hi!
 
-This is just a small repository in which I add my 3 .sbatch scripts I use for calling variants with [DeepVariant](https://github.com/google/deepvariant), rather from [longreads](https://github.com/Luna-san-2911/DeepVariant---Easy-mode/blob/main/deepvariant_longread.sbatch), [shortreads](https://github.com/Luna-san-2911/DeepVariant---Easy-mode/blob/main/deepvariant_shortread.sbatch), or multiple shortreads samples.
+This is just a small repository in which I add my 3 .sbatch scripts I use for calling variants with [DeepVariant](https://github.com/google/deepvariant), rather from [longreads](https://github.com/Luna-san-2911/DeepVariant---Easy-mode/blob/main/deepvariant_longread.sbatch), [shortreads](https://github.com/Luna-san-2911/DeepVariant---Easy-mode/blob/main/deepvariant_shortread.sbatch), or [multiple shortreads samples](https://github.com/Luna-san-2911/Running_DeepVariant/blob/main/deepvariant_shortread_loop.sbatch).
 
 # Issues I encountered
 
