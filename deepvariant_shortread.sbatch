@@ -17,14 +17,17 @@ echo "Starting at: $(date)"
 # Variables
 BIN_VERSION="1.6.1"
 
+#REF is path to reference genome
 REF=/group/gmonroegrp2/chaehee/Pablo/pistachio/genome_sequence/Pvera_Kerman_RefGen_v1.fasta
+#READS is path to your alignment .bam file, mine was already filtered and sorted
 READS=/group/gmonroegrp2/chaehee/Pablo/UCB1_hybridization/02_whatshap/01_align_reads/R1_B1_C6_S6.filtered.sorted.bam
+#OUTDIR is path to the output directory
 OUTDIR=/group/gmonroegrp2/chaehee/Pablo/UCB1_hybridization/02_whatshap/02_call_variants
 
-# Use node-local scratch
+# Use node-local scratch, this was possible for me as my HPC had this directory for tmp files
 TMPROOT=/tmp/$USER/deepvariant_${SLURM_JOB_ID:-$$}
 
-# Prepare directories
+# Create directories
 mkdir -p ${OUTDIR}
 mkdir -p ${TMPROOT}
 
