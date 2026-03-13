@@ -1,4 +1,4 @@
-# DeepVariant---Easy-mode
+# Running_DeepVariant
 
 Hola! Hi!
 
