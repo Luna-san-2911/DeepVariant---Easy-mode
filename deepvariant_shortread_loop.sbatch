@@ -26,7 +26,7 @@ BAM_DIR=/group/gmonroegrp2/chaehee/Pablo/pangenie/05_map_sample_to_infered_haplo
 REF_DIR=/group/gmonroegrp2/chaehee/Pablo/pangenie/03_infered_haplotypes/output
 OUTDIR=/group/gmonroegrp2/chaehee/Pablo/pangenie/05_map_sample_to_infered_haplotype/02_call_variants
 
-# Use node-local scratch, this was possible for me as my HPC had this directory for tmp files
+# Use a temporary directory with space, in my case the output directory had enough space, but I could have use the node-local scraccth too
 TMPROOT=${OUTDIR}/tmp
 
 # Create required directories
